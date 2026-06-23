@@ -1,0 +1,26 @@
+# Virtual environment
+venv/
+
+# Cloned repos (too large for GitHub)
+repos/
+
+# Vector database (regenerated on ingest)
+chroma_db/
+
+# Secrets
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Test files
+test_*.py
+
+# OS files
+.DS_Store
+Thumbs.db
+
+commands.txt
+structure.txt
