@@ -5,13 +5,19 @@ import os
 from chunker import read_python_files, chunk_code
 from vector_store import embed_and_store, query_similar_chunks
 from llm import generate_answer
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Codebase QA Bot",
     description="Ask natural language questions about any GitHub repository",
     version="1.0.0"
 )
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "https://your-vercel-url.vercel.app"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class RepoRequest(BaseModel):
     repo_url: str
